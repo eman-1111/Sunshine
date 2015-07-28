@@ -18,6 +18,14 @@
         <!-- Default postal code for location preference [CHAR LIMIT=NONE] -->
         <string name="pref_location_default" translatable="false">94043</string>
 
+
+    <string name="pref_notification_key" translatable="false">notification</string>
+    <string name="pref_notification_label">Disable Notification</string>
+    <string name="pref_enable_notifications_true">NotEnabled</string>
+    <string name="pref_enable_notifications_false">Enabled</string>
+    <string name="pref_enable_notifications_default" translatable="false">false</string>
+
+
     <string name="pref_temp_label">Temperature Unit</string>
     <string name="pref_temp_key" translatable="false">units</string>
 
