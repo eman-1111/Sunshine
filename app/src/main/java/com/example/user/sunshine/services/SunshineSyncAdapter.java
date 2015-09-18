@@ -91,6 +91,7 @@ public class SunshineSyncAdapter extends AbstractThreadedSyncAdapter {
             // Construct the URL for the OpenWeatherMap query
             // Possible parameters are avaiable at OWM's forecast API page, at
             // http://openweathermap.org/API#forecast
+            //http://api.openweathermap.org/data/2.5/forecast/daily?q=94043&mode=json&units=metric&cnt=7
             final String FORECAST_BASE_URL =
                     "http://api.openweathermap.org/data/2.5/forecast/daily?";
             final String QUERY_PARAM = "q";
@@ -293,6 +294,11 @@ public class SunshineSyncAdapter extends AbstractThreadedSyncAdapter {
                 ContentValues[] cvArray = new ContentValues[cVVector.size()];
                 cVVector.toArray(cvArray);
                 getContext().getContentResolver().bulkInsert(WeatherContract.WeatherEntry.CONTENT_URI, cvArray);
+
+                // delete old data so we don't build up an endless history
+                getContext().getContentResolver().delete(WeatherContract.WeatherEntry.CONTENT_URI,
+                      WeatherContract.WeatherEntry.COLUMN_DATE + " <= ?",
+                      new String[] {Long.toString(dayTime.setJulianDay(julianStartDay-1))});
                 notifyWeather();
             }
 
