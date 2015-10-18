@@ -43,6 +43,7 @@ public class WeatherProvider extends ContentProvider {
         
         //This is an inner join which looks like
         //weather INNER JOIN location ON weather.location_id = location._id
+
         sWeatherByLocationSettingQueryBuilder.setTables(
                 WeatherContract.WeatherEntry.TABLE_NAME + " INNER JOIN " +
                         WeatherContract.LocationEntry.TABLE_NAME +

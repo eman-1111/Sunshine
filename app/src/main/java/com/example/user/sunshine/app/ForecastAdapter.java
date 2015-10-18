@@ -128,8 +128,8 @@ public class ForecastAdapter extends CursorAdapter {
             }
         }
         //  Read date from cursor
-        String data =  Utility.getFriendlyDayString(context, cursor.getLong(ForecastFragment.COL_WEATHER_DATE));
-        viewHolder.dateView.setText(data);
+        String date =  Utility.getFriendlyDayString(context, cursor.getLong(ForecastFragment.COL_WEATHER_DATE));
+        viewHolder.dateView.setText(date);
 
 
         //  Read weather forecast from cursor

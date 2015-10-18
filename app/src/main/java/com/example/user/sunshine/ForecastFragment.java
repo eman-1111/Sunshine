@@ -120,6 +120,7 @@ public class  ForecastFragment extends Fragment implements LoaderManager.LoaderC
         // Get a reference to the ListView, and attach this adapter to it.
         mListView = (ListView) rootView.findViewById(R.id.listview_forecast);
         mListView.setAdapter(mForecastAdapter);
+        mListView.setEmptyView(rootView.findViewById(R.id.empty_list));
 
         // We'll call our MainActivity
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -164,23 +165,7 @@ public class  ForecastFragment extends Fragment implements LoaderManager.LoaderC
         getLoaderManager().restartLoader(FORECAST_LOADER, null, this);
     }
     private void updateWeather() {
-      /* // FetchWeatherTask weatherTask = new FetchWeatherTask(getActivity());
-       // weatherTask.execute(location);
-        Intent alarmIntent = new Intent(getActivity(), SunshineService.AlarmReceiver.class);
-        alarmIntent.putExtra(SunshineService.LOCATION_QUERY_EXTRA, Utility.getPreferredLocation(getActivity()));
 
-        //Wrap in a pending intent which only fires once.
-        PendingIntent pi = PendingIntent.getBroadcast(getActivity(), 0,alarmIntent,PendingIntent.FLAG_ONE_SHOT);//getBroadcast(context, 0, i, 0);
-
-        AlarmManager am=(AlarmManager)getActivity().getSystemService(Context.ALARM_SERVICE);
-
-        //Set the AlarmManager to wake up the system.
-        am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 5000, pi);
-        String location = Utility.getPreferredLocation(getActivity());
-
-        Intent downloadIntent = new Intent(getActivity(), SunshineService.class);
-        downloadIntent.putExtra("SunshineService.LOCATION_QUERY_EXTRA", location);
-        getActivity().startService(downloadIntent);*/
         SunshineSyncAdapter.syncImmediately(getActivity());
     }
     private void openPreferredLocationInMap() {
