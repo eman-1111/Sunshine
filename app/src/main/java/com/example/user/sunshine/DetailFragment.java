@@ -126,6 +126,7 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
         shareIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
         shareIntent.setType("text/plain");
         shareIntent.putExtra(Intent.EXTRA_TEXT, mForecast + FORECAST_SHARE_HASHTAG);
+
         return shareIntent;
     }
 
@@ -213,6 +214,7 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
 
             // If onCreateOptionsMenu has already happened, we need to update the share intent now.
             if (mShareActionProvider != null) {
+
                 mShareActionProvider.setShareIntent(createShareForecastIntent());
             }
         }

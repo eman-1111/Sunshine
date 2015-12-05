@@ -100,7 +100,7 @@ public class SunshineSyncAdapter extends AbstractThreadedSyncAdapter {
             final String UNITS_PARAM = "units";
             final String DAYS_PARAM = "cnt";
             final String APPID_PARAM = "APPID";
-            final String OPEN_WEATHER_MAP_API_KEY ="#######";
+            final String OPEN_WEATHER_MAP_API_KEY ="####";
 
 
             Uri builtUri = Uri.parse(FORECAST_BASE_URL).buildUpon()
